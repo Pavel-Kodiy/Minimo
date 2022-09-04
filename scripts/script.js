@@ -36,7 +36,12 @@ const submitForm = (event) => {
    event.preventDefault();
 };
 
-$(function () {
+document.addEventListener('DOMContentLoaded', () => {
+   showSlides(slideIndex);
+   arrovPrev.addEventListener('click', () => previousSlide());
+   arrovNext.addEventListener('click', () => nextSlide());
+   
+   $(function () {
    let $window = $(window);
    let $sidebar = $(".sidebar");
    let $sidebarTop = $sidebar.position().top;
@@ -56,11 +61,5 @@ $(function () {
       $sidebar.css("top", $topPosition);
    });
 });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-   showSlides(slideIndex);
-   arrovPrev.addEventListener('click', () => previousSlide());
-   arrovNext.addEventListener('click', () => nextSlide());
 });
 
